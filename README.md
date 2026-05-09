@@ -1,6 +1,6 @@
 # UMCMS – MVP Prototype
 
-Universal Medical Centers Management System — static HTML prototype.
+University Medical Centers Management System — static HTML prototype.
 
 ## Pages
 - `login.html` — Login screen
