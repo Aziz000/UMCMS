@@ -7,7 +7,7 @@ Universal Medical Centers Management System — static HTML prototype.
 - `dispensing.html` — Pharmacist dispensing queue
 
 ## Setup
-1. Open ` https://aziz000.github.io/UMCMS/dispensing.html ` in any browser. 
+1. Open ` https://aziz000.github.io/UMCMS/login.html ` in any browser. 
 
 
 ## Repository
