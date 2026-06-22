@@ -55,8 +55,8 @@
           <td>09/05/2026 08:14</td>
           <td><span class="badge warn">⚠ Moderate</span></td>
           <td>
-            <button class="btn review" onclick="alert('Reviewing RX-1041: Warfarin + Aspirin — Moderate interaction detected.')">Review</button>
-            <button class="btn confirm" onclick="confirm('Confirm dispensing for RX-1041?') && alert('RX-1041 marked as Dispensed.')">Confirm</button>
+            <button class="btn review" onclick="reviewPrescription('RX-1041')">Review</button>
+            <button class="btn confirm" onclick="confirmDispensing('RX-1041')">Confirm</button>
           </td>
         </tr>
         <tr>
@@ -67,8 +67,8 @@
           <td>09/05/2026 09:02</td>
           <td><span class="badge ok">✓ None</span></td>
           <td>
-            <button class="btn review" onclick="alert('Reviewing RX-1042: No interactions found.')">Review</button>
-            <button class="btn confirm" onclick="confirm('Confirm dispensing for RX-1042?') && alert('RX-1042 marked as Dispensed.')">Confirm</button>
+            <button class="btn review" onclick="reviewPrescription('RX-1042')">Review</button>
+            <button class="btn confirm" onclick="confirmDispensing('RX-1042')">Confirm</button>
           </td>
         </tr>
         <tr>
@@ -79,12 +79,27 @@
           <td>09/05/2026 09:45</td>
           <td><span class="badge ok">✓ None</span></td>
           <td>
-            <button class="btn review" onclick="alert('Reviewing RX-1043: No interactions found.')">Review</button>
-            <button class="btn confirm" onclick="confirm('Confirm dispensing for RX-1043?') && alert('RX-1043 marked as Dispensed.')">Confirm</button>
+            <button class="btn review" onclick="reviewPrescription('RX-1043')">Review</button>
+            <button class="btn confirm" onclick="confirmDispensing('RX-1043')">Confirm</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+  <script type="module">
+    import { PRESCRIPTIONS, getReviewMessage, getConfirmPrompt, getDispensedMessage } from './src/dispensing.js';
+
+    window.reviewPrescription = function (rxId) {
+      const rx = PRESCRIPTIONS.find(r => r.rxId === rxId);
+      alert(getReviewMessage(rx.rxId, rx.drugs, rx.interaction));
+    };
+
+    window.confirmDispensing = function (rxId) {
+      const rx = PRESCRIPTIONS.find(r => r.rxId === rxId);
+      if (confirm(getConfirmPrompt(rx.rxId))) {
+        alert(getDispensedMessage(rx.rxId));
+      }
+    };
+  </script>
 </body>
 </html>
