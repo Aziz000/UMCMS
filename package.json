@@ -1,0 +1,15 @@
+{
+  "name": "umcms",
+  "version": "1.0.0",
+  "description": "University Medical Centers Management System",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.6.0",
+    "vitest": "^1.6.0"
+  }
+}

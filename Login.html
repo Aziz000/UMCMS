@@ -28,16 +28,19 @@
     <input type="password" placeholder="Enter your password" id="pass">
     <button onclick="login()">Login</button>
   </div>
-  <script>
-    function login() {
+  <script type="module">
+    import { handleLogin } from './src/login.js';
+
+    window.login = function () {
       const u = document.getElementById('user').value;
       const p = document.getElementById('pass').value;
-      if (u && p) {
-        window.location.href = 'dispensing.html';
+      const result = handleLogin(u, p);
+      if (result.success) {
+        window.location.href = result.redirectUrl;
       } else {
-        alert('Please enter username and password.');
+        alert(result.message);
       }
-    }
+    };
   </script>
 </body>
 </html>
